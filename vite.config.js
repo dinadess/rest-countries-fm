@@ -5,7 +5,8 @@ import vue from "@vitejs/plugin-vue";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/rest-countries-fm/",
+  publicPath:
+    process.env.NODE_ENV === "production" ? "/rest-countries-fm/" : "/",
   plugins: [vue()],
   resolve: {
     alias: {

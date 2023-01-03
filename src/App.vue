@@ -3,7 +3,7 @@
   <main class="container mb-8" data-barba="container">
     <router-view :key="$route.path"></router-view>
   </main>
-  <footer>
+  <footer class="mt-auto">
     <p class="text-center px-2 text-dark-blue dark:text-light-gray">
       Challenge by
       <a
