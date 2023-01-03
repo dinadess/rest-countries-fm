@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap");
+@import "./base.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --dark-blue: hsl(209, 23%, 22%);
+  --very-dark-blue-dark: hsl(207, 26%, 17%);
+  --very-dark-blue-light: hsl(200, 15%, 8%);
+  --very-light-gray: hsl(0, 0%, 98%);
+  --dark-gray: hsl(0, 0%, 52%);
+  --white: hsl(0, 0%, 100%);
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Nunito Sans", sans-serif;
+}
+
+#app {
+  font-weight: normal;
+}
+
+.container {
+  max-width: 1350px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.colors {
+  @apply text-dark-blue dark:text-white bg-white  dark:bg-dark-blue;
+}
+
+.extra-text {
+  @apply flex place-items-center h-[50vh];
+}
+
+a {
+  text-decoration: none;
+  transition: 0.4s;
+}
+
+@media (hover: hover) {
+  a:hover {
+    background-color: hsla(160, 100%, 37%, 0.2);
+  }
+}
