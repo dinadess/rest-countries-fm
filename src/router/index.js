@@ -6,6 +6,10 @@ import ViewCountry from "@/views/ViewCountry.vue";
 const routes = [
   {
     path: "/",
+    redirect: { name: "countries" },
+  },
+  {
+    path: "/rest-countries-fm/",
     name: "countries",
     component: ViewCountries,
     meta: {
@@ -14,8 +18,13 @@ const routes = [
   },
   {
     path: "/:countryCode",
+    redirect: { name: "country" },
+  },
+  {
+    path: "/rest-countries-fm/:countryCode",
     name: "country",
     component: ViewCountry,
+    props: true,
   },
 ];
 
