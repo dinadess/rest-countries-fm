@@ -83,7 +83,6 @@ export const useCountryStore = defineStore("country", {
     async fetchCountries() {
       try {
         this.loading = true;
-        console.log(this.loading);
         if (!this.countries.length) {
           const response = await fetch("https://restcountries.com/v3.1/all");
           const data = await response.json();
@@ -97,11 +96,9 @@ export const useCountryStore = defineStore("country", {
           this.countries = JSON.parse(localStorage.countries);
         }
         this.loading = false;
-        console.log(this.loading);
       } catch (err) {
         this.loading = false;
         this.errorMessage = err.message;
-        console.error(err.message);
       }
     },
     toggleDarkMode() {

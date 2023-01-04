@@ -128,9 +128,6 @@ let error = "";
 if (!country.value) {
   error = "¯\\_(ツ)_/¯ No such country found! Please try again.";
 }
-console.log(error);
-console.log(country.value);
-
 console.log(route.params.countryCode);
 </script>
 
