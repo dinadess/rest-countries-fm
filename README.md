@@ -35,7 +35,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Rest Countries FM](https://dinadess.github.io/rest-countries-fm/)
+- Live Site URL: [Rest Countries FM](https://rest-countries-dina.netlify.app/)
 
 ## My process
 
