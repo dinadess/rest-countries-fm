@@ -10,10 +10,10 @@
         class="flex items-center gap-2 py-1 px-2 rounded active:shadow-md"
         @click="toggleDarkMode"
       >
-        <div class="flex gap-1">
+        <span class="flex gap-1">
           <ion-icon name="moon" v-if="countryStore.darkMode"></ion-icon>
           <ion-icon name="moon-outline" v-else></ion-icon>
-        </div>
+        </span>
         <span class="font-semibold text-sm md:text-base"> Dark Mode </span>
       </button>
     </div>
