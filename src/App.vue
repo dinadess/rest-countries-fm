@@ -1,6 +1,6 @@
 <template>
   <TheHeader></TheHeader>
-  <main class="container mb-8" data-barba="container">
+  <main class="container mb-8">
     <router-view :key="$route.path"></router-view>
   </main>
   <footer class="mt-auto">

@@ -36,6 +36,13 @@ body {
   padding-right: 2rem;
 }
 
+@media screen and (max-width: 768px) {
+  .container-header--mobile {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
 .colors {
   @apply text-dark-blue dark:text-white bg-white  dark:bg-dark-blue;
 }

@@ -1,15 +1,15 @@
 <template>
   <router-link
-    :to="`/${country.cca3}`"
+    :to="`/${country.alpha3Code}`"
     class="inline-block hover:-translate-y-4 hover:shadow-lg hover:transition-transform w-full"
   >
     <div
       class="bg-white dark:bg-dark-blue text-dark-blue-light dark:text-white rounded overflow-hidden w-full shadow-md country-card"
     >
-      <div class="w-full h-[200px]">
+      <div class="w-full h-[200px] relative">
         <img
           :src="`${country.flags.svg}`"
-          :alt="`${country.name.common}'s flag`"
+          :alt="`${country.name}'s flag`"
           class="w-full h-full object-cover object-top shadow-sm flag"
         />
       </div>
@@ -17,7 +17,7 @@
         <h2
           class="font-bold mb-[18px] overflow-hidden text-ellipsis whitespace-nowrap"
         >
-          {{ country.name.common }}
+          {{ country.name }}
         </h2>
         <div class="card-country-info">
           <p>
@@ -26,11 +26,11 @@
           </p>
           <p>
             <strong class="font-semibold"> Region: </strong>
-            {{ country.continents[0] }}
+            {{ country.region }}
           </p>
           <p>
             <strong class="font-semibold">Capital:</strong>
-            {{ country.capital?.[0] }}
+            {{ country.capital ?? "None" }}
           </p>
         </div>
       </div>

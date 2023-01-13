@@ -17,53 +17,58 @@
       <div class="flex-shrink-0">
         <img
           :src="`${country?.flags.svg}`"
-          :alt="`${country.name.common}'s flag`"
+          :alt="`${country.name}'s flag`"
           class="w-full shadow object-cover object-top country-flag"
         />
       </div>
       <div>
         <h2 class="text-base md:text-3xl font-bold mb-6">
-          {{ country.name.common }}
+          {{ country.name }}
         </h2>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div>
-            <p><strong>Native Name: </strong>{{ country.altSpellings[1] }}</p>
+            <p><strong>Native Name: </strong>{{ country.nativeName }}</p>
             <p>
               <strong>Population: </strong
               >{{ new Intl.NumberFormat("en-US").format(country.population) }}
             </p>
-            <p>
-              <strong>Region: </strong
-              >{{ country.region ? country.region : "None" }}
-            </p>
+            <p><strong>Region: </strong>{{ country.region ?? "None" }}</p>
             <p>
               <strong>Sub Region: </strong>
-              {{ country.subregion ? country.subregion : "None" }}
+              {{ country.subregion ?? "None" }}
             </p>
             <p>
               <strong>Capital: </strong>
-              <span>{{
-                country.capital ? country.capital?.join(", ") : "None"
-              }}</span>
+              <span>{{ country.capital ?? "None" }}</span>
             </p>
           </div>
           <div class="">
-            <p><strong>Top Level Domain: </strong>{{ country.tld?.[0] }}</p>
+            <p>
+              <strong>Top Level Domain: </strong
+              >{{ country.topLevelDomain?.[0] }}
+            </p>
             <p>
               <strong>Currencies: </strong
               >{{
                 country.currencies
-                  ? countryStore.getValues(country.currencies)[0]?.name
+                  ? `${countryStore.getValues(country.currencies)[0]?.name} (${
+                      countryStore.getValues(country.currencies)[0]?.symbol
+                    })`
                   : "None"
               }}
             </p>
             <p>
               <strong>Language(s): </strong>
-              <span>
+              <span
+                v-for="(language, i) in country.languages"
+                :key="language.name"
+              >
                 {{
-                  country.languages
-                    ? countryStore.getValues(country.languages).join(", ")
-                    : "None"
+                  ` ${
+                    i !== country.languages.length - 1
+                      ? `${language.name}, `
+                      : `${language.name}.`
+                  } ` ?? "None"
                 }}
               </span>
             </p>
@@ -119,7 +124,9 @@ onMounted(() => {
 
 const country = ref(
   JSON.parse(
-    JSON.stringify(countryStore.getCountry(route.params.countryCode))
+    JSON.stringify(
+      countryStore.getCountry(route.params.countryCode.toUpperCase())
+    )
   )[0]
 );
 
@@ -128,7 +135,7 @@ let error = "";
 if (!country.value) {
   error = "¯\\_(ツ)_/¯ No such country found! Please try again.";
 }
-console.log(route.params.countryCode);
+// console.log(route.params.countryCode);
 </script>
 
 <style scoped>
@@ -168,9 +175,5 @@ strong {
 
 .country-details p {
   margin-bottom: 0.5rem;
-}
-
-img.country-flag {
-  aspect-ratio: 3/2;
 }
 </style>

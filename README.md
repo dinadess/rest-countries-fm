@@ -53,9 +53,13 @@ Users should be able to:
 
 ### What I learned
 
+-- I ran into an issue after deploying the app on Github Pages : when the user was not on the index page and tried to reload the page, there was a 404 error. So, the user had to go back to the homepage and reload it before getting the content. I looked up for a solution on the internet but none was satisfying. So, I "migrated" the app to Netlify. There again, the same issue occurred but I found a solution this time. I linked it below in the [Continued development](#continued-development) section.
+
 -- I put into practice my knowledge about consuming an API and dealing with error messages. I learned how to validate data from an API and check if everything was ok before trying to display it to the user interface.
 
 -- I also re-learned how to deal with data coming from localStorage efficiently using JSON.parse().
+
+-- I used another API endpoint after realizing that some countries' information was not easily accessible.
 
 -- Finally, there was some content which required to take values from an object without knowing the keys to get access to it. So, after some research, I came up with this solution :
 
@@ -78,6 +82,7 @@ I had the opportunity to use some modern JS syntax I learned a while back (intl,
 - [CSS Ellipsis](https://codefrontend.com/css-ellipsis/) - I used this article to create an ellipsis for overflowing country names on the homepage.
 - [Internationalization](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat) - This article on MDN helped me format the population number (include commas to make them easily readable).
 - [StackOverflow Vue Router](https://stackoverflow.com/questions/59088216/vue-router-link-changes-url-but-does-not-change-router-view-component) - I faced an issue when trying to go from one country to its borders. The url changed but I had to reload the page before getting the new content. The solution was to add :key="$route.path(or fullPath)" to the router-view element, and the issue occurred because vue tries minimal changes.
+- 404 error when reloading VueJS on Netlify : I found the solution [here](https://medium.com/@ishoshot/page-not-found-on-reload-vuejs-netlify-c71716e97e6) and [here](https://antonioufano.com/articles/fix-404-errors-with-vuejs-apps-on-netlify/). I used the latter.
 
 ## Author
 

@@ -11,7 +11,6 @@ export const useCountryStore = defineStore("country", {
       errorMessage: "",
       region: "all",
       searchText: "",
-      currentCountry: useStorage("currentCountry", {}),
     };
   },
 
@@ -40,9 +39,7 @@ export const useCountryStore = defineStore("country", {
       if (this.searchText) {
         this.errorMessage = "";
         let search = this.filterByRegion?.filter((country) =>
-          country.name.common
-            .toLowerCase()
-            .includes(this.searchText.toLowerCase())
+          country.name.toLowerCase().includes(this.searchText.toLowerCase())
         );
         if (!search.length) {
           this.errorMessage =
@@ -65,7 +62,7 @@ export const useCountryStore = defineStore("country", {
     getCountry(state) {
       return (countryCode) => {
         const country = state.countries.filter(
-          (country) => country.cca3 === countryCode
+          (country) => country.alpha3Code === countryCode
         );
         return country;
       };
@@ -73,9 +70,9 @@ export const useCountryStore = defineStore("country", {
     getCountryName(state) {
       return (countryCca3) => {
         const country = state.countries.filter(
-          (country) => country.cca3 === countryCca3
+          (country) => country.alpha3Code === countryCca3
         );
-        return country?.[0].name.common;
+        return country?.[0].name;
       };
     },
   },
@@ -84,7 +81,7 @@ export const useCountryStore = defineStore("country", {
       try {
         this.loading = true;
         if (!this.countries.length) {
-          const response = await fetch("https://restcountries.com/v3.1/all");
+          const response = await fetch("https://restcountries.com/v2/all");
           const data = await response.json();
           if (!response.ok) {
             throw new Error(
