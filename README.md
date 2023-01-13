@@ -35,7 +35,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Rest Countries FM](https://dinadess.github.io/rest-countries-fm/)
+- Live Site URL: [Rest Countries FM](https://rest-countries-dina.netlify.app/)
 
 ## My process
 
@@ -53,7 +53,7 @@ Users should be able to:
 
 ### What I learned
 
--- I ran into an issue after deploying the app on Github Pages : when the user was not on the index page and tried to reload the page, there was a 404 error. So, the user had to go back to the homepage and reload it before getting the content. I looked up for a solution on the internet but none was satisfying. So, I "migrated" the app to Netlify. There again, the same issue occurred but I found a solution this time. I linked it below in the [Continued development](#continued-development) section.
+-- I ran into an issue after deploying the app on Github Pages : when the user was not on the index page and tried to reload the page, there was a 404 error. So, the user had to go back to the homepage and reload it before getting the content. I looked up for a solution on the internet but none was satisfying. So, I "migrated" the app to Netlify. There again, the same issue occurred but I found a solution this time. I linked it below in the [Useful resources](#useful-resources) section.
 
 -- I put into practice my knowledge about consuming an API and dealing with error messages. I learned how to validate data from an API and check if everything was ok before trying to display it to the user interface.
 
